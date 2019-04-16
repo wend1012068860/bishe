@@ -11,4 +11,6 @@ public interface CourseService {
      * @return
      */
     ResponseUtil findALLCourse();
+
+    ResponseUtil deleteOneCourse(Integer courseId);
 }

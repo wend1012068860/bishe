@@ -24,4 +24,15 @@ public class CourseServiceImpl implements CourseService {
     public ResponseUtil findALLCourse() {
         return new ResponseUtil(0,"get all courses",courseRepository.findAll());
     }
+
+    @Override
+    public ResponseUtil deleteOneCourse(Integer courseId) {
+        if (courseRepository.findById(courseId) != null){
+            courseRepository.deleteById(courseId);
+            return new ResponseUtil(0,"delete success",1);
+        }else {
+            return new ResponseUtil(0,"delete failed",2);
+        }
+
+    }
 }
