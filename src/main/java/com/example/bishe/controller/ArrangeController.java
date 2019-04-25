@@ -21,7 +21,7 @@ public class ArrangeController {
     }
 
     @RequestMapping(value = "/freeRoom", method = RequestMethod.POST)
-    public ResponseUtil getFreeRooms(@RequestParam String time){
-        return new ResponseUtil(0,"get free rooms",arrangeService.getFreeRooms(time));
+    public ResponseUtil getFreeRooms(@RequestParam String time, Integer courseLimitNum){
+        return new ResponseUtil(0,"get free rooms",arrangeService.getFreeRooms(time, courseLimitNum));
     }
 }

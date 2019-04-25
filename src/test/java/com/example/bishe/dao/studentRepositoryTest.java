@@ -1,6 +1,5 @@
 package com.example.bishe.dao;
 
-import com.example.bishe.entity.Room;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -8,18 +7,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 
-import static org.junit.Assert.*;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class RoomRepositoryTest {
+public class studentRepositoryTest {
     @Resource
-    private RoomRepository roomRepository;
+    private StudentRepository studentRepository;
 
     @Test
-    public void getAllRoom(){
-        System.out.println(roomRepository.findRoomsByPersonNumGreaterThanEqual(300));
+    public void findAll(){
+        System.out.println(studentRepository.findAll());
     }
-
 
 }

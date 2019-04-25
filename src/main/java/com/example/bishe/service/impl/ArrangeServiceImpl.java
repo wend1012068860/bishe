@@ -25,12 +25,12 @@ public class ArrangeServiceImpl implements ArrangeService {
     }
 
     @Override
-    public ResponseUtil getFreeRooms(String time) {
+    public ResponseUtil getFreeRooms(String time, Integer limitNum) {
         List<Arrange> onRooms = arrangeRepository.findArrangesByTime(time);
-        List<Room> allRooms = roomRepository.findAll();
-        for (int i=0; i<onRooms.size(); i++){
-            for (int j=0; j<allRooms.size(); j++){
-                if (onRooms.get(i).getRoom().equals(allRooms.get(j).getRoom())){
+        List<Room> allRooms = roomRepository.findRoomsByPersonNumGreaterThanEqual(limitNum);
+        for (int i=0; i<onRooms.size(); i++) {
+            for (int j = 0; j < allRooms.size(); j++) {
+                if ((onRooms.get(i).getRoom().equals(allRooms.get(j).getRoom()))) {
                     allRooms.remove(j);
                 }
             }

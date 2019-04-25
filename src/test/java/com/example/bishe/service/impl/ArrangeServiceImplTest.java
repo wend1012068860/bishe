@@ -18,6 +18,6 @@ public class ArrangeServiceImplTest {
 
     @Test
     public void getFreeRooms() {
-        System.out.println(arrangeService.getFreeRooms("星期一[1-2节]"));
+        System.out.println(arrangeService.getFreeRooms("星期一(1-2节)",100));
     }
 }

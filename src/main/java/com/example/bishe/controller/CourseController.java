@@ -27,6 +27,7 @@ public class CourseController {
 
     @RequestMapping(value = "/save",method = RequestMethod.POST)
     public ResponseUtil saveOneCourse(@RequestBody Course course){
+        System.out.println("接收完成");
         return new ResponseUtil(0,"save one course",courseService.saveOneCourse(course));
     }
 }

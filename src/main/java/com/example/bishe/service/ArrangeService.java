@@ -11,5 +11,5 @@ public interface ArrangeService {
      */
     ResponseUtil getAllArrange();
 
-    ResponseUtil getFreeRooms(String time);
+    ResponseUtil getFreeRooms(String time,Integer limitNum);
 }

@@ -1,6 +1,6 @@
-package com.example.bishe.dao;
+package com.example.bishe.service.impl;
 
-import com.example.bishe.entity.Room;
+import com.example.bishe.service.StudentService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,14 +12,13 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class RoomRepositoryTest {
+public class StudentServiceImplTest {
     @Resource
-    private RoomRepository roomRepository;
+    private StudentService studentService;
 
     @Test
-    public void getAllRoom(){
-        System.out.println(roomRepository.findRoomsByPersonNumGreaterThanEqual(300));
+    public void findAll(){
+        System.out.println(studentService.findAllStudent());
     }
-
 
 }
