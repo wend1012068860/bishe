@@ -1,6 +1,6 @@
-package com.example.bishe.service.impl;
+package com.example.bishe.dao;
 
-import com.example.bishe.service.RoomService;
+import com.example.bishe.entity.Arrange;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,13 +12,8 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class RoomServiceImplTest {
+public class ArrangeRepositoryTest {
     @Resource
-    private RoomService roomService;
-
-    @Test
-    public void getAllRooms() {
-        System.out.println(roomService.getAllRooms());
-    }
+    private ArrangeRepository arrangeRepository;
 
 }

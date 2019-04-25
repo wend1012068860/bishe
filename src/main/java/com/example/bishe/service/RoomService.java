@@ -1,5 +1,6 @@
 package com.example.bishe.service;
 
+import com.example.bishe.entity.Room;
 import com.example.bishe.utils.ResponseUtil;
 
 public interface RoomService {

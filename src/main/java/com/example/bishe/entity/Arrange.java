@@ -8,19 +8,19 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class Room {
+public class Arrange {
     @Id
     @GeneratedValue
 
-    private Integer roomId;
+    private Integer id;
     private String room;
-    private Integer personNum;
+    private String time;
 
-    public Room(String room, Integer personNum) {
+    public Arrange(String room, String time) {
         this.room = room;
-        this.personNum = personNum;
+        this.time = time;
     }
 
-    public Room() {
+    public Arrange() {
     }
 }

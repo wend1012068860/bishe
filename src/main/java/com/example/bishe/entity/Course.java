@@ -19,25 +19,17 @@ public class Course {
     private String courseNature;
     private Integer coursePoint;
     private String courseTeacher;
-    private String courseLimitNum;
-    private String courseChooseNum;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    private Date beginTime;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    private Date endTime;
+    private Integer courseLimitNum;
+    private Integer courseChooseNum;
     private String courseTp;
 
-    public Course(String courseName, String courseNature, Integer coursePoint, String courseTeacher, String courseLimitNum, String courseChooseNum, Date beginTime, Date endTime, String courseTp) {
+    public Course(String courseName, String courseNature, Integer coursePoint, String courseTeacher, Integer courseLimitNum, Integer courseChooseNum, String courseTp) {
         this.courseName = courseName;
         this.courseNature = courseNature;
         this.coursePoint = coursePoint;
         this.courseTeacher = courseTeacher;
         this.courseLimitNum = courseLimitNum;
         this.courseChooseNum = courseChooseNum;
-        this.beginTime = beginTime;
-        this.endTime = endTime;
         this.courseTp = courseTp;
     }
 

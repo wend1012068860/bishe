@@ -1,5 +1,6 @@
 package com.example.bishe.dao;
 
+import com.example.bishe.entity.Room;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,5 +20,6 @@ public class RoomRepositoryTest {
     public void getAllRoom(){
         System.out.println(roomRepository.findAll());
     }
+
 
 }

@@ -1,7 +1,6 @@
 package com.example.bishe.service.impl;
 
-import com.example.bishe.entity.Course;
-import com.example.bishe.service.CourseService;
+import com.example.bishe.service.ArrangeService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,21 +8,16 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CourseServiceImplTest {
+public class ArrangeServiceImplTest {
     @Resource
-    private CourseService courseService;
+    private ArrangeService arrangeService;
 
     @Test
-    public void deleteOne(){
-        System.out.println(courseService.deleteOneCourse(4));
+    public void getFreeRooms() {
+        System.out.println(arrangeService.getFreeRooms("星期一[1-2节]"));
     }
-
 }

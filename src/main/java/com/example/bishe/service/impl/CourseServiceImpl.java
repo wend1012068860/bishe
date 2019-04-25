@@ -35,4 +35,9 @@ public class CourseServiceImpl implements CourseService {
         }
 
     }
+
+    @Override
+    public ResponseUtil saveOneCourse(Course course) {
+        return new ResponseUtil(0, "save success", courseRepository.save(course));
+    }
 }
