@@ -11,4 +11,18 @@ public interface StudentService {
      * @return
      */
     ResponseUtil findAllStudent();
+
+    /**
+     * 删除一个学生
+     * @param studentId
+     * @return
+     */
+    ResponseUtil deleteOneStudent(Integer studentId);
+
+    /**
+     * 更新一个学生信息
+     * @param student
+     * @return
+     */
+    ResponseUtil updateOneStudent(Student student);
 }

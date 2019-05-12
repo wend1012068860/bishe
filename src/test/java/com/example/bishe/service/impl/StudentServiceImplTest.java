@@ -1,5 +1,7 @@
 package com.example.bishe.service.impl;
 
+import com.example.bishe.dao.StudentRepository;
+import com.example.bishe.entity.Student;
 import com.example.bishe.service.StudentService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,10 +17,15 @@ import static org.junit.Assert.*;
 public class StudentServiceImplTest {
     @Resource
     private StudentService studentService;
+    @Resource
+    private StudentRepository studentRepository;
 
     @Test
     public void findAll(){
-        System.out.println(studentService.findAllStudent());
+        Student student = studentRepository.findStudentByStudentId(5);
+        student.setStudentClass("软件1611");
+        System.out.println(student);
+        System.out.println(studentService.updateOneStudent(student));
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.bishe.dao;
 
+import com.example.bishe.entity.Student;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,7 +16,8 @@ public class studentRepositoryTest {
 
     @Test
     public void findAll(){
-        System.out.println(studentRepository.findAll());
+        Student student = studentRepository.findStudentByStudentId(5);
+        studentRepository.save(student);
     }
 
 }

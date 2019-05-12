@@ -26,8 +26,8 @@ public class CourseRepositoryTest {
     }
 
     @Test
-    public void saveOne() throws ParseException {
-
+    public void editOne(){
+        System.out.println(courseRepository.updateCourseNameById("篮球选修",1));
     }
 
 }

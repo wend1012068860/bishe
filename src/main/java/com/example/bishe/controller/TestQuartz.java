@@ -1,6 +1,5 @@
 package com.example.bishe.controller;
 
-import com.example.bishe.entity.Course;
 import com.example.bishe.entity.PublicTime;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
