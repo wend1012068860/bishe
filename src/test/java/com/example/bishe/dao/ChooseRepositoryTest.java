@@ -1,5 +1,6 @@
 package com.example.bishe.dao;
 
+import com.example.bishe.entity.Choose;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,13 +12,13 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TeacherRepositoryTest {
+public class ChooseRepositoryTest {
     @Resource
-    private TeacherRepository teacherRepository;
+    private ChooseRepository chooseRepository;
 
     @Test
-    public void findAll(){
-        System.out.println(teacherRepository.findTeacherByTeacherNumber("a001"));
+    public void test(){
+        System.out.println(chooseRepository.findChoosesByStudentNumber("s002"));
     }
 
 }

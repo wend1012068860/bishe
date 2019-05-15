@@ -43,4 +43,9 @@ public class TeacherServiceImpl implements TeacherService {
         }
 
     }
+
+    @Override
+    public ResponseUtil findTeacherByNumber(String teacherNumber) {
+        return new ResponseUtil(0,"find teacher by number",teacherRepository.findTeacherByTeacherNumber(teacherNumber));
+    }
 }

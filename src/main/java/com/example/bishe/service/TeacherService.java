@@ -23,4 +23,6 @@ public interface TeacherService {
      * @return
      */
     ResponseUtil updateTeacher(Teacher teacher);
+
+    ResponseUtil findTeacherByNumber(String teacherNumber);
 }

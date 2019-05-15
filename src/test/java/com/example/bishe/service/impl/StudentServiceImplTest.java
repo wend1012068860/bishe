@@ -22,10 +22,7 @@ public class StudentServiceImplTest {
 
     @Test
     public void findAll(){
-        Student student = studentRepository.findStudentByStudentId(5);
-        student.setStudentClass("软件1611");
-        System.out.println(student);
-        System.out.println(studentService.updateOneStudent(student));
+        System.out.println();
     }
 
 }

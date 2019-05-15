@@ -25,7 +25,6 @@ public class TestQuartz extends QuartzJobBean {
             }else if (PublicTime.endTime.equals(nowDate)){
                 PublicTime.eeTime = "选课结束";
             }
-            System.out.println(PublicTime.ssTime + "  "+ PublicTime.eeTime);
         }
 
     }

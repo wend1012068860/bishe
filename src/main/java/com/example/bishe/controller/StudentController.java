@@ -3,7 +3,9 @@ package com.example.bishe.controller;
 import cn.afterturn.easypoi.excel.ExcelImportUtil;
 import cn.afterturn.easypoi.excel.entity.ImportParams;
 import cn.afterturn.easypoi.excel.entity.result.ExcelImportResult;
+import com.example.bishe.dao.LoginUserRepository;
 import com.example.bishe.dao.StudentRepository;
+import com.example.bishe.entity.LoginUser;
 import com.example.bishe.entity.Student;
 import com.example.bishe.service.StudentService;
 import com.example.bishe.utils.ExcelUtils;
@@ -24,6 +26,8 @@ public class StudentController {
     private StudentService studentService;
     @Resource
     private StudentRepository studentRepository;
+    @Resource
+    private LoginUserRepository loginUserRepository;
 
     @RequestMapping(value = "all",method = RequestMethod.GET)
     public ResponseUtil getAllStudent(){
@@ -38,6 +42,11 @@ public class StudentController {
     @RequestMapping(value = "update",method = RequestMethod.POST)
     public ResponseUtil updateStudentInfo(@RequestBody Student student){
         return new ResponseUtil(0,"update success",studentService.updateOneStudent(student));
+    }
+
+    @RequestMapping(value = "searchOne", method = RequestMethod.POST)
+    public ResponseUtil findOneStudentByNumber(@RequestParam String studentNumber){
+        return new ResponseUtil(0,"find a student",studentService.findStudentByNumber(studentNumber));
     }
 
     @PostMapping("/importExcel")
@@ -58,6 +67,12 @@ public class StudentController {
             for (Student demoExcel : successList) {
                 System.out.println(demoExcel);
                 studentRepository.save(demoExcel);
+
+                LoginUser loginUser = new LoginUser();
+                loginUser.setLoginAccount(demoExcel.getStudentNumber());
+                loginUser.setLoginPassword(demoExcel.getStudentNumber());
+                loginUser.setLoginIdentity("student");
+                loginUserRepository.save(loginUser);
             }
         } catch (IOException e) {
         } catch (Exception e) {

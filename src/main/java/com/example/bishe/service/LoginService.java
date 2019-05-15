@@ -11,4 +11,6 @@ public interface LoginService {
      * @return
      */
     ResponseUtil getLoginUser(AandP aandP);
+
+    ResponseUtil changePassword(String loginAccount, String oldPass, String newPass);
 }

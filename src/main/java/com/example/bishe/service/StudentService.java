@@ -25,4 +25,11 @@ public interface StudentService {
      * @return
      */
     ResponseUtil updateOneStudent(Student student);
+
+    /**
+     * 根据学号查找学生
+     * @param studentNumber
+     * @return
+     */
+    ResponseUtil findStudentByNumber(String studentNumber);
 }

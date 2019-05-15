@@ -11,4 +11,5 @@ import javax.transaction.Transactional;
 public interface StudentRepository extends JpaRepository<Student, Integer> {
     Student findStudentByStudentId(Integer studentId);
 
+    Student findStudentByStudentNumber(String studentNumber);
 }

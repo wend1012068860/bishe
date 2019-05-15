@@ -16,8 +16,7 @@ public class studentRepositoryTest {
 
     @Test
     public void findAll(){
-        Student student = studentRepository.findStudentByStudentId(5);
-        studentRepository.save(student);
+        System.out.println(studentRepository.findStudentByStudentNumber("s002"));
     }
 
 }

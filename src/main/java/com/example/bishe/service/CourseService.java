@@ -15,4 +15,10 @@ public interface CourseService {
     ResponseUtil deleteOneCourse(Integer courseId);
 
     ResponseUtil saveOneCourse(Course course);
+
+    ResponseUtil addChooseNumber(Integer courseId);
+
+    ResponseUtil reduceChooseNumber(Integer courseId);
+
+    ResponseUtil stuCourses(String studentNumber);
 }

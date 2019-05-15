@@ -23,7 +23,7 @@ public class CourseServiceImplTest {
 
     @Test
     public void deleteOne(){
-        System.out.println(courseService.deleteOneCourse(4));
+        System.out.println(courseService.stuCourses("s002"));
     }
 
 }

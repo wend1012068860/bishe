@@ -28,4 +28,9 @@ public class TeacherController {
     public ResponseUtil updateTeacherInfo(@RequestBody Teacher teacher){
         return new ResponseUtil(0,"update success",teacherService.updateTeacher(teacher));
     }
+
+    @RequestMapping(value = "searchOne",method = RequestMethod.POST)
+    public ResponseUtil searchOneTeacher(@RequestParam String teacherNumber){
+        return new ResponseUtil(0,"search one teacher info",teacherService.findTeacherByNumber(teacherNumber));
+    }
 }

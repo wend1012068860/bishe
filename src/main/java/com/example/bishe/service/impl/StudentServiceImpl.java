@@ -1,5 +1,6 @@
 package com.example.bishe.service.impl;
 
+import com.example.bishe.dao.LoginUserRepository;
 import com.example.bishe.dao.StudentRepository;
 import com.example.bishe.entity.Student;
 import com.example.bishe.service.StudentService;
@@ -12,6 +13,8 @@ import javax.annotation.Resource;
 public class StudentServiceImpl implements StudentService {
     @Resource
     private StudentRepository studentRepository;
+    @Resource
+    private LoginUserRepository loginUserRepository;
 
     @Override
     public ResponseUtil findAllStudent() {
@@ -20,8 +23,10 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public ResponseUtil deleteOneStudent(Integer studentId) {
-        if (studentRepository.findById(studentId) != null){
+        Student student = studentRepository.findStudentByStudentId(studentId);
+        if (student != null){
             studentRepository.deleteById(studentId);
+            loginUserRepository.deleteLoginUserByLoginAccount(student.getStudentNumber());
             return new ResponseUtil(0,"delete one student",1);
         }else {
             return new ResponseUtil(0,"delete failed",2);
@@ -43,5 +48,10 @@ public class StudentServiceImpl implements StudentService {
         }else {
             return new ResponseUtil(0,"update failed",2);
         }
+    }
+
+    @Override
+    public ResponseUtil findStudentByNumber(String studentNumber) {
+        return new ResponseUtil(0,"find success",studentRepository.findStudentByStudentNumber(studentNumber));
     }
 }

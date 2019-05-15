@@ -19,4 +19,9 @@ public class LoginUserController {
         System.out.println(aandP);
         return loginService.getLoginUser(aandP);
     }
+
+    @RequestMapping(value = "change", method = RequestMethod.POST)
+    public ResponseUtil change(@RequestParam String loginAccount,String oldPass, String newPass){
+        return new ResponseUtil(0,"change success",loginService.changePassword(loginAccount,oldPass,newPass));
+    }
 }

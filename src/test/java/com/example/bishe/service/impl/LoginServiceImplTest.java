@@ -22,8 +22,6 @@ public class LoginServiceImplTest {
 
     @Test
     public void getLoginUser() {
-        AandP aandP = new AandP("1111","1111");
-        ResponseUtil responseUtil = loginService.getLoginUser(aandP);
-        System.out.println(responseUtil);
+        System.out.println(loginService.changePassword("s005","s005","sss5"));
     }
 }
