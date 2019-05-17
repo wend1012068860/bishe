@@ -2,11 +2,9 @@ package com.example.bishe.controller;
 
 import com.example.bishe.dao.ChooseRepository;
 import com.example.bishe.dao.CourseRepository;
+import com.example.bishe.dao.StudentRepository;
 import com.example.bishe.dao.TeacherRepository;
-import com.example.bishe.entity.Choose;
-import com.example.bishe.entity.Course;
-import com.example.bishe.entity.PublicTime;
-import com.example.bishe.entity.Teacher;
+import com.example.bishe.entity.*;
 import com.example.bishe.service.CourseService;
 import com.example.bishe.utils.ResponseUtil;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +25,8 @@ public class CourseController {
     private TeacherRepository teacherRepository;
     @Resource
     private CourseRepository courseRepository;
+    @Resource
+    private StudentRepository studentRepository;
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public ResponseUtil getAllCourse(){
@@ -106,6 +106,17 @@ public class CourseController {
     public ResponseUtil getTeacherCourse(@RequestParam String teacherNumber){
         Teacher teacher = teacherRepository.findTeacherByTeacherNumber(teacherNumber);
         return new ResponseUtil(0,"find teacher's course",courseRepository.findCourseByCourseTeacher(teacher.getTeacherName()));
+    }
+
+    @RequestMapping(value = "selectStudent",method = RequestMethod.POST)
+    public ResponseUtil getSelectStudent(@RequestParam Integer courseId){
+        List<Choose> chooseList = chooseRepository.findChoosesByCourseId(courseId);
+        List<Student> studentList = new ArrayList<>();
+        for (Choose choose : chooseList) {
+            Student student = studentRepository.findStudentByStudentNumber(choose.getStudentNumber());
+            studentList.add(student);
+        }
+        return new ResponseUtil(0,"get select course student",studentList);
     }
 
 }

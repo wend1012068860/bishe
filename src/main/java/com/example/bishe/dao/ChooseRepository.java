@@ -11,4 +11,5 @@ public interface ChooseRepository extends JpaRepository<Choose,Integer> {
     Choose findChooseByCourseIdAndStudentNumber(Integer courseId, String studentNumber);
     List<Choose> findChoosesByStudentNumber(String studentNumber);
     int deleteChooseByCourseIdAndStudentNumber(Integer courseId,String studentNumber);
+    List<Choose> findChoosesByCourseId(Integer courseId);
 }

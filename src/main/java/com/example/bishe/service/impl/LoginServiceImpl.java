@@ -21,12 +21,12 @@ public class LoginServiceImpl implements LoginService {
         if (user != null){
             //判断密码是否正确
             if (aandP.getPassword().equals(user.getLoginPassword())){
-                return new ResponseUtil(0,"login success",user);
+                return new ResponseUtil(0,"登陆成功！",user);
             }else {
-                return new ResponseUtil(0,"password wrong",null);
+                return new ResponseUtil(0,"密码错误！",null);
             }
         }else {
-            return new ResponseUtil(0,"account wrong",null);
+            return new ResponseUtil(0,"账号错误！",null);
         }
     }
 

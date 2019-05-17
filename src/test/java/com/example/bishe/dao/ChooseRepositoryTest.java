@@ -18,7 +18,7 @@ public class ChooseRepositoryTest {
 
     @Test
     public void test(){
-        System.out.println(chooseRepository.findChoosesByStudentNumber("s002"));
+        System.out.println(chooseRepository.findChoosesByCourseId(2));
     }
 
 }

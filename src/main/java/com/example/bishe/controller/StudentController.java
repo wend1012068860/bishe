@@ -49,6 +49,8 @@ public class StudentController {
         return new ResponseUtil(0,"find a student",studentService.findStudentByNumber(studentNumber));
     }
 
+
+
     @PostMapping("/importExcel")
     public void importExcel2(@RequestParam("file") MultipartFile file) {
         ImportParams importParams = new ImportParams();
@@ -85,7 +87,7 @@ public class StudentController {
 //        模拟从数据库获取需要导出的数据
         List<Student> personList = studentRepository.findAll();
 //         导出操作
-        ExcelUtils.exportExcel(personList, "测试名", "学生信息", Student.class, "测试.xls", response);
+        ExcelUtils.exportExcel(personList, "学生信息", "学生信息", Student.class, "测试.xls", response);
 
     }
 }

@@ -1,5 +1,6 @@
 package com.example.bishe.service.impl;
 
+import com.example.bishe.dao.LoginUserRepository;
 import com.example.bishe.dao.TeacherRepository;
 import com.example.bishe.entity.Teacher;
 import com.example.bishe.service.TeacherService;
@@ -12,6 +13,8 @@ import javax.annotation.Resource;
 public class TeacherServiceImpl implements TeacherService {
     @Resource
     private TeacherRepository teacherRepository;
+    @Resource
+    private LoginUserRepository loginUserRepository;
 
     @Override
     public ResponseUtil findAllTeacher() {
@@ -20,8 +23,10 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public ResponseUtil deleteTeacher(Integer teacherId) {
-        if (teacherRepository.findById(teacherId) != null){
+        Teacher teacher = teacherRepository.findTeacherByTeacherId(teacherId);
+        if (teacher != null){
             teacherRepository.deleteById(teacherId);
+            loginUserRepository.deleteLoginUserByLoginAccount(teacher.getTeacherNumber());
             return new ResponseUtil(0,"delete one teacher",1);
         }else {
             return new ResponseUtil(0,"delete failed",2);
